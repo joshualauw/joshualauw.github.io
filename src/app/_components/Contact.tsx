@@ -19,12 +19,12 @@ function Contact() {
             <Heading size="lg" textAlign="center">
                 Contact
             </Heading>
-            <Card w="75%" p={8} rounded="lg">
+            <Card w={{ base: "100%", xl: "75%" }} p={{ base: 3, md: 8 }} rounded="xl">
                 <CardBody>
                     <VStack spacing={6}>
                         <FormControl>
                             <FormLabel>Your Name</FormLabel>
-                            <Input type="email" />
+                            <Input type="text" />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Content </FormLabel>

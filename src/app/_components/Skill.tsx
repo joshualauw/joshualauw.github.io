@@ -26,7 +26,7 @@ function Skill() {
             </Heading>
             <Box px={8} textAlign="center">
                 {skills.map((skill) => (
-                    <Badge key={skill} mr={3} mb={4} colorScheme="purple" px={4} py={1.5} rounded="full">
+                    <Badge key={skill} mr={3} mb={3} colorScheme="purple" px={4} py={1.5} rounded="full">
                         {skill}
                     </Badge>
                 ))}

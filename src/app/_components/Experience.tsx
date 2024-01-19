@@ -24,12 +24,22 @@ function Experience() {
                 "- Skills: NuxtJs | WebRTC | ExpressJS | MongoDB | Typescript",
             ],
         },
+        {
+            title: "Alumni",
+            location: "iSTTS",
+            duration: "August 2019 - November 2023",
+            description: [
+                "- Graduated from Institut Sains dan Teknologi Terpadu Surabaya (iSTTS) University",
+                "- Graduated in span of 4 years with a GPA of 3.56",
+                "- Skills: OOP | REST API | MVC | System Design | Algorithm & Data Structure",
+            ],
+        },
     ];
 
     return (
         <VStack spacing={14} width={{ base: "100%", xl: "75%" }} padding={{ base: 5, md: 0 }}>
             <Heading size="lg" textAlign="center">
-                Experience
+                Experience & Education
             </Heading>
             {experiences.map((exp) => (
                 <Flex key={exp.title}>
