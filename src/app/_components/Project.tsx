@@ -17,32 +17,29 @@ function Project() {
     const projects = [
         {
             id: "1",
-            imageUrl:
-                "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            imageUrl: "/img/justdoit.png",
             name: "JUSTDOIT",
             overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prismaORM"],
+            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
         },
         {
             id: "2",
-            imageUrl:
-                "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            imageUrl: "/img/justdoit.png",
             name: "JUSTDOIT",
             overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo"],
+            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
         },
         {
             id: "3",
-            imageUrl:
-                "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+            imageUrl: "/img/justdoit.png",
             name: "JUSTDOIT",
             overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo"],
+            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
         },
     ];
 
     return (
-        <VStack spacing={14} width="full" padding={{ base: 5, md: 0 }}>
+        <VStack spacing={14} w="full" padding={{ base: 5, md: 0 }}>
             <Heading size="lg" textAlign="center">
                 Projects
             </Heading>

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { fonts } from "@/lib/fonts";
 import { Providers } from "@/lib/providers";
@@ -8,12 +9,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={fonts.poppins.variable}>
             <body>
                 <Providers>
-                    <Box bgColor="gray.50" width="100%" paddingBottom={24}>
+                    <Box bgColor="gray.50" w="100%" pb={24}>
                         <div id="home"></div>
                         <Navbar />
-                        <Container maxW={{ base: "100%", md: "700px", xl: "1000px" }} paddingBottom={16}>
+                        <Container maxW={{ base: "100%", md: "700px", xl: "1000px" }} pb={16}>
                             {children}
                         </Container>
+                        <Footer />
                     </Box>
                 </Providers>
             </body>

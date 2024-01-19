@@ -7,9 +7,10 @@ function Experience() {
             location: "PT. Fiesto Informatika",
             duration: "June 2022 - October 2022",
             description: [
-                "- Developed transaction, budgetting, and orphanage admin dashboard using Boostrap | MySQL | JQuery | Codeigniter 3",
+                "- Developed transaction, budgetting, and orphanage admin dashboard",
                 "- Implement REST API using OOP Architecture",
                 "- Creating documentation and user handbook for the application",
+                "- Skills: Boostrap | MySQL | JQuery | Codeigniter 3",
             ],
         },
         {
@@ -17,10 +18,10 @@ function Experience() {
             location: "iSTTS",
             duration: "October 2022 - November 2023",
             description: [
-                "- Developed event management website with video meeting platform as final project using" +
-                    "NuxtJs | WebRTC | ExpressJS | MongoDB | Typescript",
+                "- Developed event management website with video meeting platform as final project",
                 "- Conducted testing on a 30+ student at seminar at iSTTS with questionnaire feedback",
                 "- Implement Real Time Communication using Agora publisher-subscriber architecture.",
+                "- Skills: NuxtJs | WebRTC | ExpressJS | MongoDB | Typescript",
             ],
         },
     ];
@@ -31,10 +32,10 @@ function Experience() {
                 Experience
             </Heading>
             {experiences.map((exp) => (
-                <Flex>
+                <Flex key={exp.title}>
                     <DotLine />
                     <Box key={exp.title} width={{ base: "100%", md: "550px" }}>
-                        <VStack alignItems="start" spacing={1} marginBottom={4}>
+                        <VStack alignItems="start" spacing={1} mb={4}>
                             <Text fontWeight={700} fontSize="xl">
                                 {exp.title} | {exp.location}
                             </Text>
@@ -43,7 +44,7 @@ function Experience() {
                             </Text>
                         </VStack>
                         {exp.description.map((desc) => (
-                            <Text key={desc} color="gray.600" fontSize="sm">
+                            <Text key={desc} color="gray.600" fontSize="sm" mb="1px">
                                 {desc}
                             </Text>
                         ))}

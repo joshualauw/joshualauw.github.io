@@ -5,6 +5,7 @@ import Hero from "./_components/Hero";
 import Skill from "./_components/Skill";
 import Experience from "./_components/Experience";
 import Project from "./_components/Project";
+import Contact from "./_components/Contact";
 
 export default function Page() {
     return (
@@ -16,6 +17,8 @@ export default function Page() {
             <Experience />
             <Divider id="projects"></Divider>
             <Project />
+            <Divider id="contact"></Divider>
+            <Contact />
         </VStack>
     );
 }
