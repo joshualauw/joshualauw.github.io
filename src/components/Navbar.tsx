@@ -30,7 +30,9 @@ function Navbar() {
             <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
                 {links.map((link) => (
                     <Link key={link.href} as={NextLink} href={link.href}>
-                        <Text fontSize={{ base: "sm", md: "md" }}>{link.name}</Text>
+                        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600}>
+                            {link.name}
+                        </Text>
                     </Link>
                 ))}
             </Flex>
