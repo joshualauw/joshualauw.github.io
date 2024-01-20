@@ -22,7 +22,7 @@ function Modal({
         <>
             <ChakraModal isOpen={isOpen} onClose={onClose} size={size} isCentered>
                 <ModalOverlay />
-                <ModalContent>
+                <ModalContent bgColor="secondary">
                     <ModalHeader>{header}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>{children}</ModalBody>

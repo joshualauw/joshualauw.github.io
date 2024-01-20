@@ -49,12 +49,12 @@ function Experience() {
                             <Text fontWeight={700} fontSize="xl">
                                 {exp.title} | {exp.location}
                             </Text>
-                            <Text color="gray.700" fontWeight={500}>
+                            <Text color="mute" fontWeight={500}>
                                 {exp.duration}
                             </Text>
                         </VStack>
                         {exp.description.map((desc) => (
-                            <Text key={desc} color="gray.600" fontSize="sm" mb="1px">
+                            <Text key={desc} color="mute" fontSize="sm" mb="1px">
                                 {desc}
                             </Text>
                         ))}

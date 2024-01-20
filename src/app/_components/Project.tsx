@@ -49,7 +49,7 @@ function Project() {
             <Grid templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap={8}>
                 {projects.map((project) => (
                     <GridItem key={project.id}>
-                        <Card rounded="lg">
+                        <Card rounded="lg" bgColor="secondary">
                             <CardBody>
                                 <Image
                                     src={project.imageUrl}

@@ -13,7 +13,7 @@ function Hero() {
                         </Text>{" "}
                         From Surabaya, Indonesia
                     </Text>
-                    <Text color="gray.500">
+                    <Text color="mute">
                         A fresh graduate with a keen interest in IT pursuing web development career. My passion lies in
                         programming, science, internet technology, and software engineering. I Hope we can work
                         Together.

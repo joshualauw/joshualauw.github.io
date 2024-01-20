@@ -1,12 +1,13 @@
 "use client";
 
-import { Center, Flex, Link, Text, IconButton, useColorMode, Spacer } from "@chakra-ui/react";
-import { usePathname } from "next/navigation";
+import { Flex, Link, Text, IconButton, useColorMode, Spacer, Box } from "@chakra-ui/react";
+import { usePathname, useRouter } from "next/navigation";
 import NextLink from "next/link";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 function Navbar() {
     const { colorMode, toggleColorMode } = useColorMode();
+    const pathName = usePathname();
 
     const links = [
         {
@@ -31,16 +32,14 @@ function Navbar() {
         },
     ];
 
-    const pathName = usePathname();
-
-    if (pathName !== "/") return <></>;
+    const isHomePage = pathName === "/";
 
     return (
-        <Center py={4} w="100%" zIndex="100" shadow="sm" bgColor={colorMode === "light" ? "white" : "black"}>
-            <Flex alignItems="center" justify="center" w="100%">
+        <Box py={4} w="100%" position="sticky" top={0} left={0} zIndex="100" shadow="sm" bgColor="secondary">
+            <Flex alignItems="center" justify="center" w="100%" px={{ base: 4, md: 8 }}>
                 {links.map((link) => (
-                    <Link key={link.href} as={NextLink} href={link.href}>
-                        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600} mx={4}>
+                    <Link key={link.href} as={NextLink} href={(!isHomePage ? "/" : "") + link.href}>
+                        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600} mx={{ base: 2, md: 4 }}>
                             {link.name}
                         </Text>
                     </Link>
@@ -52,7 +51,7 @@ function Navbar() {
                     onClick={toggleColorMode}
                 />
             </Flex>
-        </Center>
+        </Box>
     );
 }
 

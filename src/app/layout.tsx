@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={fonts.poppins.variable}>
             <body>
                 <Providers>
-                    <Box bgColor="gray.50" w="100%" pb={24}>
+                    <Box w="100%" pb={24}>
                         <div id="home"></div>
                         <Navbar />
                         <Container
