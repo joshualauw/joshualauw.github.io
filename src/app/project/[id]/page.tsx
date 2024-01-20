@@ -1,7 +1,7 @@
 "use client";
 
 import Modal from "@/components/Modal";
-import { Box, Button, Center, Flex, Heading, Icon, Image, Link, Text, VStack, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Heading, Icon, Image, Link, Text, VStack, useDisclosure, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { IoMdArrowBack } from "react-icons/io";
@@ -9,12 +9,16 @@ import { IoMdArrowBack } from "react-icons/io";
 function ProjectDetailPage() {
     const router = useRouter();
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { colorMode, toggleColorMode } = useColorMode();
 
     return (
-        <Box p={{ base: 5, md: 0 }}>
+        <Box p={{ base: 5, md: 0 }} bgColor={colorMode === "light" ? "white" : "black"}>
             <Flex alignItems="center" gap={8}>
                 <Button onClick={() => router.push("/#projects")} variant="ghost">
                     <Icon as={IoMdArrowBack} fontSize={{ base: 16, md: 20 }} mr={2} /> Back
+                </Button>
+                <Button onClick={toggleColorMode} variant="ghost">
+                    {colorMode === "light" ? "Dark Mode" : "Light Mode"}
                 </Button>
             </Flex>
             <Center mt={8}>

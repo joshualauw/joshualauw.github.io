@@ -1,10 +1,13 @@
 "use client";
 
-import { Center, Flex, Link, Text } from "@chakra-ui/react";
+import { Center, Flex, Link, Text, IconButton, useColorMode, Spacer } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 function Navbar() {
+    const { colorMode, toggleColorMode } = useColorMode();
+
     const links = [
         {
             href: "#home",
@@ -30,18 +33,24 @@ function Navbar() {
 
     const pathName = usePathname();
 
-    if (pathName != "/") return <></>;
+    if (pathName !== "/") return <></>;
 
     return (
-        <Center py={6} position="sticky" top={0} left={0} w="100%" zIndex="100" bgColor="white" shadow="sm">
-            <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
+        <Center py={4} w="100%" zIndex="100" shadow="sm" bgColor={colorMode === "light" ? "white" : "black"}>
+            <Flex alignItems="center" justify="center" w="100%">
                 {links.map((link) => (
                     <Link key={link.href} as={NextLink} href={link.href}>
-                        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600}>
+                        <Text fontSize={{ base: "sm", md: "md" }} fontWeight={600} mx={4}>
                             {link.name}
                         </Text>
                     </Link>
                 ))}
+                <Spacer />
+                <IconButton
+                    aria-label="Toggle color mode"
+                    icon={colorMode === "light" ? <FaMoon /> : <FaSun />}
+                    onClick={toggleColorMode}
+                />
             </Flex>
         </Center>
     );
