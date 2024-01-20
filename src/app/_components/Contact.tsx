@@ -17,9 +17,9 @@ function Contact() {
     return (
         <VStack spacing={14} w="100%" p={{ base: 5, md: 0 }} position="relative">
             <Heading size="lg" textAlign="center">
-                Contact
+                Contact Me
             </Heading>
-            <Card w={{ base: "100%", xl: "75%" }} p={{ base: 2, md: 4 }} rounded="lg" bgColor="secondary">
+            <Card w={{ base: "100%", xl: "75%" }} p={{ base: 2, md: 4 }} rounded="xl" bgColor="secondary">
                 <CardBody>
                     <VStack spacing={6}>
                         <FormControl>

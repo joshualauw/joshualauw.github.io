@@ -52,14 +52,14 @@ function ProjectDetailPage() {
                         <Text>
                             <Link target="_blank" href="https://github.com" color="blue">
                                 https://github.com
-                            </Link>{" "}
-                            - Github Link
+                            </Link>
+                            <span> - Github Link</span>
                         </Text>
                         <Text>
                             <Link target="_blank" href="https://justdoit-sigma.vercel.app" color="blue">
                                 https://justdoit-sigma.vercel.app
-                            </Link>{" "}
-                            - Website Link
+                            </Link>
+                            <span> - Github Link</span>
                         </Text>
                     </Box>
                 </VStack>

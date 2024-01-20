@@ -4,7 +4,7 @@ const customTheme = extendTheme({
     styles: {
         global: (props: any) => ({
             "html, body": {
-                bgColor: props.colorMode == "light" ? "gray.50" : "black",
+                bgColor: props.colorMode == "light" ? "gray.50" : "gray.900",
             },
         }),
     },
@@ -16,7 +16,7 @@ const customTheme = extendTheme({
             },
             secondary: {
                 default: "white",
-                _dark: "gray.900",
+                _dark: "gray.800",
             },
         },
     },

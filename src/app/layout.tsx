@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { fonts } from "@/lib/fonts";
-import { Providers } from "@/lib/providers";
+import { Providers } from "@/providers/providers";
 import { Box, Container } from "@chakra-ui/react";
 
 import "./global.css";
@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={fonts.poppins.variable}>
             <body>
                 <Providers>
-                    <Box w="100%" pb={24}>
+                    <Box w="100%" pb={16}>
                         <div id="home"></div>
                         <Navbar />
                         <Container

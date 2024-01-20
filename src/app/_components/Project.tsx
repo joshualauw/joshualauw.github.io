@@ -44,7 +44,7 @@ function Project() {
     return (
         <VStack spacing={14} w="full" padding={{ base: 5, md: 0 }}>
             <Heading size="lg" textAlign="center">
-                Projects
+                My Projects
             </Heading>
             <Grid templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap={8}>
                 {projects.map((project) => (

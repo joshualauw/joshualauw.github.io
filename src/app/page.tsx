@@ -9,7 +9,7 @@ import Contact from "./_components/Contact";
 
 export default function Page() {
     return (
-        <VStack marginTop={{ base: 16, md: 24 }} spacing={{ base: 10, md: 20 }}>
+        <VStack marginTop={{ base: 10, md: 16 }} spacing={{ base: 10, md: 20 }}>
             <Hero />
             <Divider id="skills"></Divider>
             <Skill />
