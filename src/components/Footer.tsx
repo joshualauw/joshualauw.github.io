@@ -29,10 +29,10 @@ function Footer() {
                 </Button>
                 <Button onClick={onOpen} variant="ghost" size="sm">
                     <Icon as={SiGmail} fontSize={24} />
+                    <Modal isOpen={isOpen} onClose={onClose} size="sm" header="My Email Address">
+                        joshualauw1@gmail.com
+                    </Modal>
                 </Button>
-                <Modal isOpen={isOpen} onClose={onClose} header="My Email Address">
-                    joshualauw1@gmail.com
-                </Modal>
             </Box>
         </VStack>
     );

@@ -12,6 +12,7 @@ import {
     Box,
     Text,
 } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 
 function Project() {
     const projects = [
@@ -37,6 +38,8 @@ function Project() {
             stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
         },
     ];
+
+    const router = useRouter();
 
     return (
         <VStack spacing={14} w="full" padding={{ base: 5, md: 0 }}>
@@ -75,7 +78,7 @@ function Project() {
                                         ))}
                                     </Box>
                                     <Center>
-                                        <Button variant="outline" size="sm">
+                                        <Button onClick={() => router.push("/project/123")} variant="outline" size="sm">
                                             Read More
                                         </Button>
                                     </Center>

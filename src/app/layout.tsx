@@ -4,6 +4,7 @@ import { fonts } from "@/lib/fonts";
 import { Providers } from "@/lib/providers";
 import { Box, Container } from "@chakra-ui/react";
 
+import "./global.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,7 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Box bgColor="gray.50" w="100%" pb={24}>
                         <div id="home"></div>
                         <Navbar />
-                        <Container maxW={{ base: "100%", md: "700px", xl: "1000px" }} pb={{ base: 8, md: 16 }}>
+                        <Container
+                            maxW={{ base: "100%", md: "700px", xl: "1000px" }}
+                            pt={{ base: 8, md: 16 }}
+                            pb={{ base: 8, md: 16 }}
+                        >
                             {children}
                         </Container>
                         <Footer />

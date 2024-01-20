@@ -1,4 +1,7 @@
+"use client";
+
 import { Center, Flex, Link, Text } from "@chakra-ui/react";
+import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 
 function Navbar() {
@@ -24,6 +27,10 @@ function Navbar() {
             name: "Contact",
         },
     ];
+
+    const pathName = usePathname();
+
+    if (pathName != "/") return <></>;
 
     return (
         <Center py={6} position="sticky" top={0} left={0} w="100%" zIndex="100" bgColor="white" shadow="sm">
