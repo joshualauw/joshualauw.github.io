@@ -1,74 +1,58 @@
-"use client";
+import { IProject, getProjectDetail } from "@/api/project";
+import { Box, Center, Heading, Image, Link, ListItem, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import BackButton from "./_components/BackButton";
+import Gallery from "./_components/Gallery";
+import { urlFor } from "@/lib/sanity";
+import { PortableText } from "@portabletext/react";
 
-import Modal from "@/components/Modal";
-import { Box, Button, Center, Flex, Heading, Icon, Image, Link, Text, VStack, useDisclosure } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import { IoMdArrowBack } from "react-icons/io";
+export const revalidate = 30;
 
-function ProjectDetailPage() {
-    const router = useRouter();
-    const { isOpen, onOpen, onClose } = useDisclosure();
+const customComponents = {
+    list: {
+        bullet: ({ children }: any) => <UnorderedList>{children}</UnorderedList>,
+    },
+    listItem: {
+        bullet: ({ children }: any) => <ListItem ml={5}>{children}</ListItem>,
+    },
+};
+
+async function ProjectDetailPage({ params }: { params: { id: string } }) {
+    const project: IProject = await getProjectDetail(params.id);
+
+    if (project == null) return <Center>Not Found</Center>;
 
     return (
         <Box p={{ base: 5, md: 0 }}>
-            <Flex alignItems="center" gap={8}>
-                <Button onClick={() => router.push("/#projects")} variant="ghost">
-                    <Icon as={IoMdArrowBack} fontSize={{ base: 16, md: 20 }} mr={2} /> Back
-                </Button>
-            </Flex>
+            <BackButton />
             <Center mt={8}>
                 <VStack w={{ base: "100%", md: "75%" }} alignItems="start" spacing={12}>
-                    <Image src="/img/justdoit.png" borderRadius="lg" maxH="375px" w="100%" objectFit="cover" />
+                    <Image
+                        src={urlFor(project.imageUrl).url()}
+                        borderRadius="lg"
+                        maxH="375px"
+                        w="100%"
+                        objectFit="cover"
+                    />
                     <Heading fontSize="2xl">📕 Overview</Heading>
-                    <Heading fontSize="xl">Project Title: JUSTDOIT</Heading>
-                    <Text color="mute">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere esse in aliquid cumque cum natus
-                        dolorem ipsam vel voluptatem corrupti laborum nihil exercitationem, voluptate consequuntur id
-                        soluta, culpa tempore repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto esse odit mollitia non accusamus incidunt amet facere quae hic et. Consequuntur
-                        reiciendis error ex, iusto quibusdam consequatur quaerat dolores delectus? <br /> <br />
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, beatae quisquam vitae optio
-                        soluta explicabo dicta officia consectetur qui ipsam doloremque dolores aperiam maiores atque
-                        nostrum id deleniti unde reiciendis.
-                    </Text>
+                    <Heading fontSize="xl">Project Title: {project.name}</Heading>
+                    <VStack spacing={6} alignItems="start">
+                        <PortableText value={project.content} components={customComponents} />
+                    </VStack>
                     <Heading fontSize="2xl">🖼️ Gallery</Heading>
-                    <Flex w="100%" overflowX="auto" gap={4} pb={8}>
-                        {Array.from(Array(4).keys()).map((i) => (
-                            <Image
-                                key={i}
-                                onClick={onOpen}
-                                src="/img/justdoit.png"
-                                maxW={{ base: "200px", md: "300px" }}
-                                borderRadius="lg"
-                                objectFit="cover"
-                                cursor="zoom-in"
-                                _hover={{ transform: "scale(1.05)" }}
-                            />
-                        ))}
-                    </Flex>
+                    <Gallery images={project.gallery} />
                     <Heading fontSize="2xl">🔗 Links</Heading>
                     <Box>
-                        <Text>
-                            <Link target="_blank" href="https://github.com" color="blue">
-                                https://github.com
-                            </Link>
-                            <span> - Github Link</span>
-                        </Text>
-                        <Text>
-                            <Link target="_blank" href="https://justdoit-sigma.vercel.app" color="blue">
-                                https://justdoit-sigma.vercel.app
-                            </Link>
-                            <span> - Github Link</span>
-                        </Text>
+                        {project.links.map((link) => (
+                            <Text key={link.url}>
+                                <Link target="_blank" href={link.url} color="blue">
+                                    {link.url}
+                                </Link>
+                                <span> - {link.name}</span>
+                            </Text>
+                        ))}
                     </Box>
                 </VStack>
             </Center>
-            <Modal isOpen={isOpen} onClose={onClose} size="xl" header="Gallery Image">
-                <Icon as={BiChevronLeft} fontSize={48} position="absolute" top="50%" left="0" cursor="pointer" />
-                <Image src="/img/justdoit.png" borderRadius="xl" />
-                <Icon as={BiChevronRight} fontSize={48} position="absolute" top="50%" right="0" cursor="pointer" />
-            </Modal>
         </Box>
     );
 }

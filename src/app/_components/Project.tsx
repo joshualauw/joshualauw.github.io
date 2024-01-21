@@ -1,3 +1,5 @@
+import { IProjectCard, getProjectCards } from "@/api/project";
+import { urlFor } from "@/lib/sanity";
 import {
     Image,
     Card,
@@ -12,34 +14,10 @@ import {
     Box,
     Text,
 } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-function Project() {
-    const projects = [
-        {
-            id: "1",
-            imageUrl: "/img/justdoit.png",
-            name: "JUSTDOIT",
-            overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
-        },
-        {
-            id: "2",
-            imageUrl: "/img/justdoit.png",
-            name: "JUSTDOIT",
-            overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
-        },
-        {
-            id: "3",
-            imageUrl: "/img/justdoit.png",
-            name: "JUSTDOIT",
-            overview: "A Web App for creating and joining public challenges",
-            stack: ["nuxt", "tailwindcss", "nestjs", "turborepo", "prisma"],
-        },
-    ];
-
-    const router = useRouter();
+async function Project() {
+    const projects: IProjectCard[] = await getProjectCards();
 
     return (
         <VStack spacing={14} w="full" padding={{ base: 5, md: 0 }}>
@@ -52,13 +30,13 @@ function Project() {
                         <Card rounded="lg" bgColor="secondary">
                             <CardBody>
                                 <Image
-                                    src={project.imageUrl}
+                                    src={urlFor(project.imageUrl).url()}
                                     alt="Green double couch with wooden legs"
                                     borderRadius="lg"
                                 />
                                 <VStack mt={4} spacing={4}>
                                     <Heading size="md">{project.name}</Heading>
-                                    <Text color="gray.500" fontSize="sm">
+                                    <Text color="mute" fontSize="sm">
                                         {project.overview}
                                     </Text>
                                     <Box>
@@ -78,8 +56,8 @@ function Project() {
                                         ))}
                                     </Box>
                                     <Center>
-                                        <Button onClick={() => router.push("/project/123")} variant="outline" size="sm">
-                                            Read More
+                                        <Button variant="outline" size="sm">
+                                            <Link href={`/project/${project.id}`}>Read More</Link>
                                         </Button>
                                     </Center>
                                 </VStack>
