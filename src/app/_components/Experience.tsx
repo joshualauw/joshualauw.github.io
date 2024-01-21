@@ -1,47 +1,15 @@
+import { IExperience, getAllExperience } from "@/api/experience";
 import { Heading, VStack, useColorModeValue, chakra, Flex, Box, Text } from "@chakra-ui/react";
 
-function Experience() {
-    const experiences = [
-        {
-            title: "Intern Web Developer",
-            location: "PT. Fiesto Informatika",
-            duration: "June 2022 - October 2022",
-            description: [
-                "- Developed transaction, budgetting, and orphanage admin dashboard",
-                "- Implement REST API using OOP Architecture",
-                "- Creating documentation and user handbook for the application",
-                "- Skills: Boostrap | MySQL | JQuery | Codeigniter 3",
-            ],
-        },
-        {
-            title: "Web Developer",
-            location: "iSTTS",
-            duration: "October 2022 - November 2023",
-            description: [
-                "- Developed event management website with video meeting platform as final project",
-                "- Conducted testing on a 30+ student at seminar at iSTTS with questionnaire feedback",
-                "- Implement Real Time Communication using Agora publisher-subscriber architecture.",
-                "- Skills: NuxtJs | WebRTC | ExpressJS | MongoDB | Typescript",
-            ],
-        },
-        {
-            title: "Alumni",
-            location: "iSTTS",
-            duration: "August 2019 - November 2023",
-            description: [
-                "- Graduated from Institut Sains dan Teknologi Terpadu Surabaya (iSTTS) University",
-                "- Graduated in span of 4 years with a GPA of 3.56",
-                "- Skills: OOP | REST API | MVC | System Design | Algorithm & Data Structure",
-            ],
-        },
-    ];
+async function Experience() {
+    const data: IExperience[] = await getAllExperience();
 
     return (
         <VStack spacing={14} width={{ base: "100%", xl: "75%" }} padding={{ base: 5, md: 0 }}>
             <Heading size="lg" textAlign="center">
                 Experience & Education
             </Heading>
-            {experiences.map((exp) => (
+            {data.map((exp) => (
                 <Flex key={exp.title}>
                     <DotLine />
                     <Box key={exp.title} width={{ base: "100%", md: "550px" }}>
