@@ -2,14 +2,14 @@ import { IExperience, getAllExperience } from "@/api/experience";
 import { Heading, VStack, useColorModeValue, chakra, Flex, Box, Text } from "@chakra-ui/react";
 
 async function Experience() {
-    const data: IExperience[] = await getAllExperience();
+    const experiences: IExperience[] = await getAllExperience();
 
     return (
         <VStack spacing={14} width={{ base: "100%", xl: "75%" }} padding={{ base: 5, md: 0 }}>
             <Heading size="lg" textAlign="center">
                 Experience & Education
             </Heading>
-            {data.map((exp) => (
+            {experiences.map((exp) => (
                 <Flex key={exp.title}>
                     <DotLine />
                     <Box key={exp.title} width={{ base: "100%", md: "550px" }}>

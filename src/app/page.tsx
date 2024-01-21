@@ -7,6 +7,8 @@ import Experience from "./_components/Experience";
 import Project from "./_components/Project";
 import Contact from "./_components/Contact";
 
+export const revalidate = 30;
+
 export default function Page() {
     return (
         <VStack marginTop={{ base: 10, md: 16 }} spacing={{ base: 10, md: 20 }}>
