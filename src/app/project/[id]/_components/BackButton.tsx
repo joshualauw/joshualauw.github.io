@@ -1,13 +1,13 @@
 "use client";
 
-import { Button, Flex, Icon } from "@chakra-ui/react";
+import { Button, Flex, Icon, Link } from "@chakra-ui/react";
 import { IoMdArrowBack } from "react-icons/io";
-import Link from "next/link";
+import NextLink from "next/link";
 
 function BackButton() {
     return (
         <Button variant="ghost">
-            <Link href="/#projects">
+            <Link as={NextLink} href="/#projects">
                 <Flex alignItems="center">
                     <Icon as={IoMdArrowBack} fontSize={{ base: 16, md: 20 }} mr={2} /> Back
                 </Flex>
