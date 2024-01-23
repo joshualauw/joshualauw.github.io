@@ -1,6 +1,4 @@
-"use client";
-
-import { Divider, VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import Hero from "./_components/Hero";
 import Skill from "./_components/Skill";
 import Experience from "./_components/Experience";
@@ -13,13 +11,13 @@ export default function Page() {
     return (
         <VStack marginTop={{ base: 10, md: 16 }} spacing={{ base: 10, md: 20 }}>
             <Hero />
-            <Divider id="skills"></Divider>
+            <Box id="skills"></Box>
             <Skill />
-            <Divider id="experience"></Divider>
+            <Box id="experience"></Box>
             <Experience />
-            <Divider id="projects"></Divider>
+            <Box id="projects"></Box>
             <Project />
-            <Divider id="contact"></Divider>
+            <Box id="contact"></Box>
             <Contact />
         </VStack>
     );

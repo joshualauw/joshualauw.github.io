@@ -1,3 +1,5 @@
+"use client";
+
 import { ISkill, getAllSkill } from "@/api/skill";
 import { Badge, Box, Heading, VStack } from "@chakra-ui/react";
 

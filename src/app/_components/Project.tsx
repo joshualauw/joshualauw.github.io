@@ -1,3 +1,5 @@
+"use client";
+
 import { IProjectCard, getProjectCards } from "@/api/project";
 import { urlFor } from "@/lib/sanity";
 import {

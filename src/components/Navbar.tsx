@@ -18,12 +18,15 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
 import { FaBars, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { links, socialMediaLinks } from "@/lib/const";
+import { useEffect, useState } from "react";
 
 function Navbar() {
     const { colorMode, toggleColorMode } = useColorMode();
     const [isNotMobile] = useMediaQuery("(min-width: 800px)");
     const pathName = usePathname();
-    const isHomePage = pathName === "/";
+    const [isHomePage, setIsHomePage] = useState(false);
+
+    useEffect(() => setIsHomePage(pathName === "/"), []);
 
     return (
         <Box py={4} w="100%" position="sticky" top={0} left={0} zIndex="100" shadow="sm" bgColor="secondary">

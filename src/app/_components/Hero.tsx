@@ -1,7 +1,12 @@
-import { Box, Button, HStack, Icon, Image, Stack, Text, VStack } from "@chakra-ui/react";
+"use client";
+
+import { IResume, getResume } from "@/api/resume";
+import { Box, Icon, HStack, Image, Stack, Text, VStack, Button } from "@chakra-ui/react";
 import { IoDocumentText, IoMail } from "react-icons/io5";
 
-function Hero() {
+async function Hero() {
+    const resume: IResume = await getResume();
+
     return (
         <Box w={{ base: "100%", xl: "75%" }} p={{ base: 5, md: 0 }}>
             <Stack direction={{ base: "column-reverse", md: "row" }} alignItems="center" spacing={{ base: 8, md: 16 }}>
@@ -22,7 +27,14 @@ function Hero() {
                         <Button as="a" href="#contact" colorScheme="blue" rounded="full" variant="outline">
                             <Icon as={IoMail} mr={2} /> Contact Me
                         </Button>
-                        <Button colorScheme="blue" rounded="full">
+                        <Button
+                            as="a"
+                            href={resume.url}
+                            download={resume.version}
+                            target="_blank"
+                            colorScheme="blue"
+                            rounded="full"
+                        >
                             <Icon as={IoDocumentText} mr={2} /> Download CV
                         </Button>
                     </HStack>

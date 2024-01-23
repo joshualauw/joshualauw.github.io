@@ -1,8 +1,8 @@
 "use client";
 
 import { Button, Flex, Icon } from "@chakra-ui/react";
-import Link from "next/link";
 import { IoMdArrowBack } from "react-icons/io";
+import Link from "next/link";
 
 function BackButton() {
     return (

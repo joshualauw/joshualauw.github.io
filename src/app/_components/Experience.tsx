@@ -1,3 +1,5 @@
+"use client";
+
 import { IExperience, getAllExperience } from "@/api/experience";
 import { Heading, VStack, useColorModeValue, chakra, Flex, Box, Text } from "@chakra-ui/react";
 
